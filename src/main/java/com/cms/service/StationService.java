@@ -17,7 +17,7 @@ public class StationService {
     private final  OfficerService officerService;
 
     public IncidentStationDto getStationByIncidentId(int incidentId) {
-        Incident incident = incidentService.getById(incidentId);
+        incidentService.getById(incidentId);
         Station station = stationRepository.getStationByIncidentId(incidentId);
         // get officer for this incident
         Officer officer = officerService.getByIncidentId(incidentId);
