@@ -37,8 +37,6 @@ public class OfficerService {
     private final UserService userService;
 
 
-    private final String uploadLoc="C:/Users/HP/Documents/java-fsd-hex-may-2026/uploads";
-
     public Officer getById(int officerId) {
         return officerRepository.findById(officerId)
                 .orElseThrow(()-> new ResourceNotFoundException("Invalid Officer ID"));
@@ -116,6 +114,7 @@ public class OfficerService {
         FileUtility.validateFile(file);
 
         // i am creating the path where i will upload the file: destination
+        String uploadLoc = "C:/Users/HP/Documents/java-fsd-hex-may-2026/uploads";
         Path uploadPath =  Paths.get(uploadLoc).normalize();
         // Attach the file name to the upload path
         Path destinationPath =  uploadPath.resolve(Objects.requireNonNull(file.getOriginalFilename())).normalize();

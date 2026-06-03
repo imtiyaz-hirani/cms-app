@@ -61,12 +61,7 @@ public class IncidentController {
     public void deleteById(@PathVariable int id){
        incidentService.deleteById(id);
     }
-//
-//    @PutMapping("/update/{id}")
-//    public void update(@PathVariable int id,
-//                       @RequestBody Incident updatedIncident){
-//         incidentService.update(id, updatedIncident);
-//     }
+
 
      @GetMapping("/type")
      public List<Incident> getByIncidentType(@RequestParam IncidentType incidentType){
