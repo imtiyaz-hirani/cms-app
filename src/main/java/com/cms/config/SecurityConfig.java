@@ -43,7 +43,6 @@ public class SecurityConfig {
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http
                 .csrf(AbstractHttpConfigurer::disable) /// Spring needs this for POST,PUT & DELETE
-                //.csrf(ref->ref.disable())
                 .authorizeHttpRequests(authorize -> authorize
                                 .requestMatchers(HttpMethod.GET, "/api/auth/login").authenticated()
                                 .requestMatchers(HttpMethod.POST, "/api/officer/add").permitAll()
